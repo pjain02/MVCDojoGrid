@@ -1,0 +1,60 @@
+﻿<#@ template language="C#" #>
+
+dojo.require("dojo.cookie");
+dojo.require("dojox.html.entities");
+dojo.require("dojo.store.JsonRest");
+dojo.require("dojox.grid.EnhancedGrid");
+dojo.require("dojox.grid.enhanced.plugins.Pagination");
+dojo.require("dojo.data.ObjectStore");
+dojo.require("dijit.layout.ContentPane");
+
+function getLink(rowIndex, item) {
+	if(item != null) {
+		var grid_id = dojo.cookie("grid_id");
+		var grid_link = dojo.cookie("grid_link");
+		var link = "<#= _editURL #>/" + item[grid_id];
+		return "<a href='" + link + "'>" + item[grid_link] + "</a>";
+	}
+};
+
+function formatEditLink(value) {
+	return dojox.html.entities.decode(value);o
+}
+
+//Converts the string function names to function pointers
+function parseJSON(json) {
+	for(var i = 0; i < json.length; i++) {
+	  var b = json[i];
+	  b.get = window[b.get];
+	  b.formatter = window[b.formatter];
+	}
+};
+
+dojo.ready(function () {
+	myStore = new dojo.store.JsonRest({ target: "<#= _dataURL #>" });
+	dojo.xhrGet({
+		url: "<#= _structureURL #>",
+		handleAs: "json",
+		load: function(jsonData) {
+			parseJSON(jsonData);
+			grid = new dojox.grid.EnhancedGrid({
+				autoWidth: false,
+				autoRender: true,
+				autoHeight: true,
+				width: "50%",
+				rowSelector: "20px",
+				store: dataStore = dojo.data.ObjectStore({ objectStore: myStore }),
+				structure : jsonData,
+				sortInfo : +1,
+				columnReordering: true,
+				plugins : {
+					pagination : {
+						pageSizes : ["10", "25", "50", "100"]
+					}
+				}
+			});
+		dijit.byId("<#= _gridName #>").attr("content", grid.domNode);
+		grid.startup();
+		}
+	});
+});
