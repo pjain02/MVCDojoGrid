@@ -1,0 +1,7 @@
+MVCDojoGrid is an html helper extension for MVC3 projects.
+It allows to add the EnhancedGrid with as little code as possible and at the same time being very extensible.
+
+The dojo library used in this project is 1.6.1
+This project is still in very intial stage and a lot of things could change.
+
+I will be updating this readme file as I commit new changes.
