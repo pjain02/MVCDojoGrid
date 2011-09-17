@@ -7,6 +7,11 @@ namespace MvcDojoGrid
 {
     internal class ColumnParser
     {
+        /// <summary>
+        /// Parses the text to break them up based on '_' and capitals
+        /// </summary>
+        /// <param name="text">The text to be parsed</param>
+        /// <returns>An array of strings (Broken up words in the text)</returns>
         internal string[] Parse(string text)
         {
             if (text.Length == 0)
@@ -50,6 +55,11 @@ namespace MvcDojoGrid
             return words.ToArray();
         }
 
+        /// <summary>
+        /// Seperates the column name in to individual words based on parser rules
+        /// </summary>
+        /// <param name="text">Column Name to be parsed</param>
+        /// <returns>Column Name after the rules are applied</returns>
         internal string ColumnName(string text)
         {
             string[] words = Parse(text);
