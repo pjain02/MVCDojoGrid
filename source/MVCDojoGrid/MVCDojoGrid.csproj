@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColumnParser.cs" />
+    <Compile Include="DataResult.cs" />
+    <Compile Include="Dynamic.cs" />
     <Compile Include="Grid.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
