@@ -1,4 +1,6 @@
-﻿using System;
+﻿// ColumnParser.cs
+// Author - Prateek Jain
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

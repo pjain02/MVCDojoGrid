@@ -1,6 +1,5 @@
 ﻿//GridExtensions.cs
 //Author - Prateek Jain
-//prateek.ja@gmail.com
 
 using System;
 using System.Collections.Generic;

@@ -1,6 +1,5 @@
 ﻿//GridStructure.cs
-//Author - Prateek Jain, Light Speed Solutions
-//prateek.jain@lightspeedsolutions.com
+//Author - Prateek Jain
 
 using System;
 using System.Collections.Generic;
